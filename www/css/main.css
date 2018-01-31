@@ -1,0 +1,93 @@
+html {
+  font-size: 20px;
+  color: #fff;
+}
+body,
+h1,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  max-width: 750px;
+  margin: 0 auto;
+  background: #eee;
+}
+header {
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background: #0467e9e3 ;
+}
+header h1 {
+  font-size: 1rem;
+}
+#container {
+  margin-top: 2rem ;
+  padding-left: 5%;
+  font-size: .6rem;
+  font-family: "console", "微软雅黑";
+}
+#container .row > span {
+  display: inline-block;
+  cursor: pointer;
+  width: 10%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #000000;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-bottom: 0;
+  border-right: 0;
+}
+#container .row > span.col_g_right {
+  border-right: 1px solid #ccc;
+}
+#container .row > span:first-child {
+  border-left: 2px solid #ccc;
+}
+#container .row > span:last-child {
+  border-right: 2px solid #ccc;
+}
+#container .row.row_g_bottom > span {
+  border-bottom: 1px solid #ccc;
+}
+#container .row:first-child > span {
+  border-top: 2px solid #ccc;
+}
+#container .row:last-child > span {
+  border-bottom: 2px solid #ccc;
+}
+footer {
+  height: 2rem;
+  width: 100%;
+  max-width: 750px;
+  line-height: 2rem;
+  text-align: center;
+  background: #0467e9e3 ;
+  position: fixed;
+  bottom: 0;
+}
+footer ul {
+  font-size: 1rem;
+}
+footer ul li {
+  width: 25%;
+  height: 100%;
+  cursor: pointer;
+  float: left;
+  border-right: 1px solid #fff;
+  box-sizing: border-box;
+}
+footer ul li:last-child {
+  border-right: 0;
+}
+footer ul:after {
+  content: "";
+  display: block;
+  clear: both;
+  visibility: hidden;
+}

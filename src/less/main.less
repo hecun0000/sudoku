@@ -1,0 +1,114 @@
+html{
+    font-size: 20px;
+    color: #fff;
+}
+
+body, h1, ul,li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    max-width: 750px;
+    margin: 0 auto;
+    background: #eee;
+}
+header {
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    background: #0467e9e3 ;
+
+    h1 {
+        font-size: 1rem;
+    }
+
+    
+}
+
+// 布局
+#container {
+    margin-top: 2rem ;
+    padding-left: 5%;
+    font-size: .6rem;
+    font-family: "console","微软雅黑";
+    .row{
+        >span {
+            display: inline-block;
+            cursor: pointer;
+            width: 10%;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #000000;
+            border: 1px solid #ccc;
+            background: #fff;
+            border-bottom: 0;
+            border-right: 0;
+
+            &.col_g_right{
+                border-right:1px solid #ccc;
+            }
+
+            &:first-child {
+                border-left: 2px solid #ccc;
+            }
+
+            &:last-child {
+                 border-right:2px solid #ccc;
+            }
+        }
+
+        &.row_g_bottom{
+            >span {
+                border-bottom: 1px solid #ccc;
+            }
+        }
+        &:first-child {
+            >span {
+                 border-top: 2px solid #ccc;
+            }
+        }
+
+        &:last-child {
+            >span {
+                 border-bottom: 2px solid #ccc;
+            }
+        }
+
+        
+    }
+}
+
+footer {
+    height: 2rem;
+    width: 100%;
+     max-width: 750px;
+    line-height: 2rem;
+    text-align: center;
+    background: #0467e9e3 ;
+    position: fixed;
+    bottom: 0;
+    
+    ul {
+        font-size: 1rem;
+        li {
+            width: 25%;
+            height: 100%;
+            cursor: pointer;
+            float: left;
+            border-right: 1px solid #fff;
+            box-sizing: border-box;
+            &:last-child{
+                border-right: 0;
+            }
+        }
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+            visibility: hidden;
+        }
+    }
+}
