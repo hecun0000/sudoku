@@ -107,3 +107,4 @@ class Checker {
 // matrix[3][5] = matrix[5][3] = 4;
 // console.log(checker2.check());
 // console.log(checker2.matrixMarks);
+bui  
