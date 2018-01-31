@@ -70,11 +70,24 @@
 "use strict";
 
 
+var Grid = __webpack_require__(1);
+var grid = new Grid($("#container"));
+grid.build();
+grid.layout();
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var toolkit = __webpack_require__(1);
+// 生成九宫格
+var Toolkit = __webpack_require__(2);
 
 var Grid = function () {
     function Grid(container) {
@@ -86,7 +99,7 @@ var Grid = function () {
     _createClass(Grid, [{
         key: "build",
         value: function build() {
-            var matrix = toolkit.makeMatrix();
+            var matrix = Toolkit.matrix.makeMatrix();
             var rowGrounpClasses = ["row_g_top", "row_g_middle", "row_g_bottom"];
             var colGrounpClasses = ["col_g_left", "col_g_center", "col_g_right"];
             var $cells = matrix.map(function (rowValues) {
@@ -115,17 +128,20 @@ var Grid = function () {
     return Grid;
 }();
 
-var grid = new Grid($("#container"));
-grid.build();
-grid.layout();
+module.exports = Grid;
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+// 矩阵和数组相关的工具
 var matrixToolkit = {
     makeRow: function makeRow() {
         var v = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
@@ -148,18 +164,88 @@ var matrixToolkit = {
      * 洗牌算法
      */
     shuffle: function shuffle(array) {
-        var endIndex = array.length - 2;
+        var length = array.length;
+        var endIndex = length - 1;
         for (var i = 0; i < endIndex; i++) {
-            var j = i + Math.floor(Math.random() * (array.length - i));
+            var j = i + Math.floor(Math.random() * (length - i));
             var _ref = [array[j], array[i]];
             array[i] = _ref[0];
             array[j] = _ref[1];
         }
         return array;
+    },
+
+
+    /***
+     * 检查指定位置是否有值
+     */
+    checkFillable: function checkFillable(matrix, n, rowIndex, colIndex) {
+        var row = matrix[rowIndex];
+        var col = this.makeRow().map(function (v, i) {
+            return matrix[i][colIndex];
+        });
+
+        var _boxToolit$convertToB = boxToolit.convertToBoxIndex(rowIndex, colIndex),
+            boxIndex = _boxToolit$convertToB.boxIndex;
+
+        var box = boxToolit.getBoxCells(matrix, boxIndex);
+        for (var i = 0; i < 9; i++) {
+            if (row[i] === n || col[i] === n || box[i] === n) {
+                return false;
+            }
+        }
+        return true;
     }
 };
+/***
+ * 宫坐标系
+ */
 
-module.exports = matrixToolkit;
+var boxToolit = {
+    getBoxCells: function getBoxCells(matrix, boxIndex) {
+        var startRowIndex = Math.floor(boxIndex / 3) * 3;
+        var startColIndex = boxIndex % 3 * 3;
+        var result = [];
+        for (var cellIndex = 0; cellIndex < 9; cellIndex++) {
+            var rowIndex = startRowIndex + Math.floor(cellIndex / 3);
+            var colIndex = startColIndex + cellIndex % 3;
+            result.push(matrix[rowIndex][colIndex]);
+        }
+
+        return result;
+    },
+    convertToBoxIndex: function convertToBoxIndex(rowIndex, colIndex) {
+        return {
+            boxIndex: Math.floor(rowIndex / 3) * 3 + Math.floor(colIndex / 3),
+            cellIndex: rowIndex % 3 * 3 + colIndex % 3
+        };
+    },
+    convertFromBoxIndex: function convertFromBoxIndex(boxIndex, cellIndex) {
+        return {
+            rowIndex: Math.floor(boxIndex / 3) * 3 + Math.floor(cellIndex / 3),
+            colIndex: boxIndex % 3 * 3 + cellIndex % 3
+        };
+    }
+};
+module.exports = function () {
+    function ToolKit() {
+        _classCallCheck(this, ToolKit);
+    }
+
+    _createClass(ToolKit, null, [{
+        key: "matrix",
+        get: function get() {
+            return matrixToolkit;
+        }
+    }, {
+        key: "box",
+        get: function get() {
+            return boxToolit;
+        }
+    }]);
+
+    return ToolKit;
+}();
 
 /***/ })
 /******/ ]);
