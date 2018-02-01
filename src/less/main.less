@@ -46,7 +46,19 @@ header {
             background: #fff;
             border-bottom: 0;
             border-right: 0;
-
+            &.empty{
+                color: #fff;
+            }
+            &.fixed{
+                color: #0467e9e3;
+                background: #eee;
+            }
+            &.mark1{
+                background: #78eb0ce3;
+            }
+            &.mark2{
+                background: #d88406e3;
+            }
             &.col_g_right{
                 border-right:1px solid #ccc;
             }
@@ -79,6 +91,25 @@ header {
 
         
     }
+}
+
+.popup-num {
+    position: absolute;
+    #container();
+    margin: 0 ;
+    padding: 0 ;
+    .row{
+        span {
+            width: 1.5rem;
+            height: 1.5rem;
+            line-height: 1.5rem;
+
+           
+        }
+    }
+}
+.hidden{
+    display: none;
 }
 
 footer {

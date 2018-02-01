@@ -43,6 +43,19 @@ header h1 {
   border-bottom: 0;
   border-right: 0;
 }
+#container .row > span.empty {
+  color: #fff;
+}
+#container .row > span.fixed {
+  color: #0467e9e3;
+  background: #eee;
+}
+#container .row > span.mark1 {
+  background: #78eb0ce3;
+}
+#container .row > span.mark2 {
+  background: #d88406e3;
+}
 #container .row > span.col_g_right {
   border-right: 1px solid #ccc;
 }
@@ -60,6 +73,67 @@ header h1 {
 }
 #container .row:last-child > span {
   border-bottom: 2px solid #ccc;
+}
+.popup-num {
+  position: absolute;
+  margin-top: 2rem ;
+  padding-left: 5%;
+  font-size: .6rem;
+  font-family: "console", "微软雅黑";
+  margin: 0 ;
+  padding: 0 ;
+}
+.popup-num .row > span {
+  display: inline-block;
+  cursor: pointer;
+  width: 10%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #000000;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-bottom: 0;
+  border-right: 0;
+}
+.popup-num .row > span.empty {
+  color: #fff;
+}
+.popup-num .row > span.fixed {
+  color: #0467e9e3;
+  background: #eee;
+}
+.popup-num .row > span.mark1 {
+  background: #78eb0ce3;
+}
+.popup-num .row > span.mark2 {
+  background: #d88406e3;
+}
+.popup-num .row > span.col_g_right {
+  border-right: 1px solid #ccc;
+}
+.popup-num .row > span:first-child {
+  border-left: 2px solid #ccc;
+}
+.popup-num .row > span:last-child {
+  border-right: 2px solid #ccc;
+}
+.popup-num .row.row_g_bottom > span {
+  border-bottom: 1px solid #ccc;
+}
+.popup-num .row:first-child > span {
+  border-top: 2px solid #ccc;
+}
+.popup-num .row:last-child > span {
+  border-bottom: 2px solid #ccc;
+}
+.popup-num .row span {
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.hidden {
+  display: none;
 }
 footer {
   height: 2rem;

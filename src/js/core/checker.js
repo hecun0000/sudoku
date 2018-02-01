@@ -24,7 +24,7 @@ function checkArray(array){
     return marks;
 }
 const Toolkit = require("./toolkit");
-class Checker {
+module.exports = class Checker {
     constructor(matrix){
         this._matrix = matrix;
         this._matrixMarks = Toolkit.matrix.makeMatrix(true);
@@ -92,23 +92,3 @@ class Checker {
         }
     }
 }
-
-// const generator = require("./generator");
-// const gen = new generator();
-
-// gen.generate();
-// const matrix = gen.matrix;
-// const checker = new Checker(matrix);
-// const checker2 = new Checker(matrix);
-
-// console.log(checker.check());
-// console.log(checker.matrixMarks);
-// matrix[1][1]=0;
-// matrix[3][5] = matrix[5][3] = 4;
-// console.log(checker2.check());
-// console.log(checker2.matrixMarks);
-
-
-
-
-

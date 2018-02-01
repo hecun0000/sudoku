@@ -16,13 +16,29 @@
     </section>
     <footer>
         <ul>
-            <li>检查</li>
-            <li>清空</li>
-            <li>标记</li>
-            <li>重来</li>           
+            <li id="check">检查</li>
+            <li id="clear1">清空</li>
+            <li id="reset1">重置</li>
+            <li id="rebuild">重来</li>           
         </ul>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- 弹出面板 -->
+    <div id="popupNumbers" class="grid popup-num hidden">
+        <div class="row">
+            <span>1</span><span>2</span><span>3</span>
+        </div>
+        <div class="row">
+            <span>4</span><span>5</span><span>6</span>
+        </div>
+        <div class="row">
+            <span>7</span><span>8</span><span>9</span>
+        </div>
+        <div class="row">
+            <span class="mark1"></span><span class="empty"></span><span class="mark2"></span>
+        </div>
+    </div>
+    <script src="js/jquery-2.0.0.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> -->
     <script src="js/index.js"></script>
 </body>
 </html>
