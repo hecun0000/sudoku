@@ -1,3 +1,11 @@
+@bg: #b2bec3;
+@titleBg:#d63031;
+@fontColor: #6c5ce7;
+@mark1Color:#55efc4;
+@mark2Color:#ffeaa7;
+@popFontColor:  #00b894;
+@errorColor: #fab1a0;
+@fixedBg:#fdcb6e;
 html{
     font-size: 20px;
     color: #fff;
@@ -18,7 +26,8 @@ header {
     height: 2rem;
     line-height: 2rem;
     text-align: center;
-    background: #0467e9e3 ;
+    background: @titleBg ;
+    box-shadow: 0px 4px 10px #ccc;
 
     h1 {
         font-size: 1rem;
@@ -41,51 +50,64 @@ header {
             height: 40px;
             text-align: center;
             line-height: 40px;
-            color: #000000;
-            border: 1px solid #ccc;
+            color: @popFontColor;
+            border: 1px solid @bg;
             background: #fff;
             border-bottom: 0;
             border-right: 0;
             &.empty{
                 color: #fff;
+                &.mark1{
+                    color: @mark1Color;
+                }
+                &.mark2{
+                    color: @mark2Color;
+                }
+                &.error {
+                    color: @errorColor;
+                    background: @errorColor;
+                }
+            }
+            &.error {
+                background: @errorColor;
             }
             &.fixed{
-                color: #0467e9e3;
-                background: #eee;
+                color: @fontColor;
+                background: @fixedBg;
             }
             &.mark1{
-                background: #78eb0ce3;
+                background: @mark1Color;
             }
             &.mark2{
-                background: #d88406e3;
+                background: @mark2Color;
             }
             &.col_g_right{
-                border-right:1px solid #ccc;
+                border-right:1px solid @bg;
             }
 
             &:first-child {
-                border-left: 2px solid #ccc;
+                border-left: 2px solid @bg;
             }
 
             &:last-child {
-                 border-right:2px solid #ccc;
+                 border-right:2px solid @bg;
             }
         }
 
         &.row_g_bottom{
             >span {
-                border-bottom: 1px solid #ccc;
+                border-bottom: 1px solid @bg;
             }
         }
         &:first-child {
             >span {
-                 border-top: 2px solid #ccc;
+                 border-top: 2px solid @bg;
             }
         }
 
         &:last-child {
             >span {
-                 border-bottom: 2px solid #ccc;
+                 border-bottom: 2px solid @bg;
             }
         }
 
@@ -118,12 +140,12 @@ footer {
      max-width: 750px;
     line-height: 2rem;
     text-align: center;
-    background: #0467e9e3 ;
+    background: @titleBg ;
     position: fixed;
     bottom: 0;
-    
+    box-shadow: 0px -4px 10px #ccc;
     ul {
-        font-size: 1rem;
+        font-size: .8rem;
         li {
             width: 25%;
             height: 100%;

@@ -19,7 +19,8 @@ header {
   height: 2rem;
   line-height: 2rem;
   text-align: center;
-  background: #0467e9e3 ;
+  background: #d63031;
+  box-shadow: 0px 4px 10px #ccc;
 }
 header h1 {
   font-size: 1rem;
@@ -37,8 +38,8 @@ header h1 {
   height: 40px;
   text-align: center;
   line-height: 40px;
-  color: #000000;
-  border: 1px solid #ccc;
+  color: #00b894;
+  border: 1px solid #b2bec3;
   background: #fff;
   border-bottom: 0;
   border-right: 0;
@@ -46,33 +47,46 @@ header h1 {
 #container .row > span.empty {
   color: #fff;
 }
+#container .row > span.empty.mark1 {
+  color: #55efc4;
+}
+#container .row > span.empty.mark2 {
+  color: #ffeaa7;
+}
+#container .row > span.empty.error {
+  color: #fab1a0;
+  background: #fab1a0;
+}
+#container .row > span.error {
+  background: #fab1a0;
+}
 #container .row > span.fixed {
-  color: #0467e9e3;
-  background: #eee;
+  color: #6c5ce7;
+  background: #fdcb6e;
 }
 #container .row > span.mark1 {
-  background: #78eb0ce3;
+  background: #55efc4;
 }
 #container .row > span.mark2 {
-  background: #d88406e3;
+  background: #ffeaa7;
 }
 #container .row > span.col_g_right {
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #b2bec3;
 }
 #container .row > span:first-child {
-  border-left: 2px solid #ccc;
+  border-left: 2px solid #b2bec3;
 }
 #container .row > span:last-child {
-  border-right: 2px solid #ccc;
+  border-right: 2px solid #b2bec3;
 }
 #container .row.row_g_bottom > span {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #b2bec3;
 }
 #container .row:first-child > span {
-  border-top: 2px solid #ccc;
+  border-top: 2px solid #b2bec3;
 }
 #container .row:last-child > span {
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #b2bec3;
 }
 .popup-num {
   position: absolute;
@@ -90,8 +104,8 @@ header h1 {
   height: 40px;
   text-align: center;
   line-height: 40px;
-  color: #000000;
-  border: 1px solid #ccc;
+  color: #00b894;
+  border: 1px solid #b2bec3;
   background: #fff;
   border-bottom: 0;
   border-right: 0;
@@ -99,33 +113,46 @@ header h1 {
 .popup-num .row > span.empty {
   color: #fff;
 }
+.popup-num .row > span.empty.mark1 {
+  color: #55efc4;
+}
+.popup-num .row > span.empty.mark2 {
+  color: #ffeaa7;
+}
+.popup-num .row > span.empty.error {
+  color: #fab1a0;
+  background: #fab1a0;
+}
+.popup-num .row > span.error {
+  background: #fab1a0;
+}
 .popup-num .row > span.fixed {
-  color: #0467e9e3;
-  background: #eee;
+  color: #6c5ce7;
+  background: #fdcb6e;
 }
 .popup-num .row > span.mark1 {
-  background: #78eb0ce3;
+  background: #55efc4;
 }
 .popup-num .row > span.mark2 {
-  background: #d88406e3;
+  background: #ffeaa7;
 }
 .popup-num .row > span.col_g_right {
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #b2bec3;
 }
 .popup-num .row > span:first-child {
-  border-left: 2px solid #ccc;
+  border-left: 2px solid #b2bec3;
 }
 .popup-num .row > span:last-child {
-  border-right: 2px solid #ccc;
+  border-right: 2px solid #b2bec3;
 }
 .popup-num .row.row_g_bottom > span {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #b2bec3;
 }
 .popup-num .row:first-child > span {
-  border-top: 2px solid #ccc;
+  border-top: 2px solid #b2bec3;
 }
 .popup-num .row:last-child > span {
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #b2bec3;
 }
 .popup-num .row span {
   width: 1.5rem;
@@ -141,12 +168,13 @@ footer {
   max-width: 750px;
   line-height: 2rem;
   text-align: center;
-  background: #0467e9e3 ;
+  background: #d63031;
   position: fixed;
   bottom: 0;
+  box-shadow: 0px -4px 10px #ccc;
 }
 footer ul {
-  font-size: 1rem;
+  font-size: .8rem;
 }
 footer ul li {
   width: 25%;

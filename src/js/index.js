@@ -13,8 +13,9 @@ grid.bindPopup(popunumbers);
 $("#rebuild").click(e=>{
     grid.rebuild();
 })
-$("#ckeck").click(e=>{
-    grid.ckeck();
+$("#check").click(e=>{
+    console.log("检查了")
+    grid.check();
 })
 $("#clear1").click(e=>{
     grid.clear1();

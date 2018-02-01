@@ -1,6 +1,7 @@
 // 生成九宫格
 const generator = require("../core/generator");
 const Sudoku = require("../core/sudoku");
+const Checker = require("../core/checker");
 class Grid {
     constructor(container) {
         this._$container = container;
@@ -51,15 +52,41 @@ class Grid {
     }
 
     check(){
+        const data = this._$container.children()
+                    .map((rowIndex,div)=>{
+                        return $(div).children()
+                                .map((colIndex,span)=>parseInt($(span).text())||0)
+                    }).toArray().map($data=>$data.toArray());
+        const checker = new Checker(data);
 
+        if(checker.check()){
+            return true;
+        }
+
+        const marks = checker.matrixMarks;
+        this._$container.children()
+            .each((rowIndex,div)=>{
+                $(div).children().each((colIndex,span)=>{
+                    if ($(span).is(".fixed")|| marks[rowIndex][colIndex]) {
+                       $(span).removeClass("error");
+                    }else{
+                        $(span).addClass("error");
+
+                    }
+                })
+            })
     }
 
     reset1(){
-
+        this._$container.find("span:not('.fixed')")
+                        .removeClass("mark1 mark2 error")
+                        .addClass("empty")
+                        .text(0);   
     }
 
     clear1(){
-        
+        this._$container.find("span.error").removeClass("error");
+
     }
 }
 

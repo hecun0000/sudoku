@@ -66,17 +66,17 @@ module.exports = class Checker {
         for (let colIndex = 0; colIndex < 9; colIndex++) {
             for (let rowIndex = 0; rowIndex < 9; rowIndex++) {
                 cols[rowIndex] = this._matrix[rowIndex][colIndex];
-                
-            }            
+            }    
+            const marks = checkArray(cols);
+            for (let rowIndex = 0; rowIndex < 9; rowIndex++) {
+                if (!marks[rowIndex]) {
+                    this._matrixMarks[rowIndex][colIndex] = false;
+                }
+
+            }        
         }
 
-        const marks = checkArray(cols);
-        for (let rowIndex = 0; rowIndex < 9; rowIndex++) {
-            if (!marks[rowIndex]) {
-                this._matrixMarks[rowIndex][colIndex] = false;                
-            }
-            
-        }
+        
     }
 
     checkBoxes(){
