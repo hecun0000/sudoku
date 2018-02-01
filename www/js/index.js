@@ -289,7 +289,6 @@ $("#rebuild").click(function (e) {
     grid.rebuild();
 });
 $("#check").click(function (e) {
-    console.log("检查了");
     grid.check();
 });
 $("#clear1").click(function (e) {
@@ -386,6 +385,7 @@ var Grid = function () {
             }
 
             var marks = checker.matrixMarks;
+            console.log(marks);
             this._$container.children().each(function (rowIndex, div) {
                 $(div).children().each(function (colIndex, span) {
                     if ($(span).is(".fixed") || marks[rowIndex][colIndex]) {
@@ -478,7 +478,7 @@ function checkArray(array) {
     var marks = new Array(length);
     marks.fill(true);
 
-    for (var i = 0; i < length - 1; i++) {
+    for (var i = 0; i < length; i++) {
         if (!marks[i]) {
             continue;
         }
@@ -528,7 +528,7 @@ module.exports = function () {
                 var row = this._matrix[rowIndex];
                 var marks = checkArray(row);
 
-                for (var colIndex = 0; colIndex < marks.length; colIndex++) {
+                for (var colIndex = 0; colIndex < 9; colIndex++) {
                     if (!marks[colIndex]) {
                         this._matrixMarks[rowIndex][colIndex] = false;
                     }
@@ -630,16 +630,28 @@ var PopupNumbers = function () {
         key: "popup",
         value: function popup($cell) {
             this._$targetCell = $cell;
+            var width = $cell.width();
+            console.log(width);
+            $("#popupNumbers").find("span").css({
+                "width": width,
+                "height": width,
+                "line-height": width + "px"
+            });
+
+            var popupWidth = $("#popupNumbers").width();
+            var sreenWidth = $(window).width();
 
             var _$cell$position = $cell.position(),
                 left = _$cell$position.left,
                 top = _$cell$position.top;
 
-            console.log($cell);
             this._$panel.css({
                 left: left + "px",
                 top: top + "px"
             }).show();
+            if (left + popupWidth > sreenWidth) {
+                this._$panel.css("left", sreenWidth - popupWidth);
+            }
         }
     }, {
         key: "hide",

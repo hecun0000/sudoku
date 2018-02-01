@@ -4,7 +4,7 @@ function checkArray(array){
     const marks = new Array(length);
     marks.fill(true);
 
-    for (let i = 0; i < length-1; i++) {
+    for (let i = 0; i < length; i++) {
         if(!marks[i]){
             continue;
         }
@@ -53,7 +53,7 @@ module.exports = class Checker {
             const row = this._matrix[rowIndex];
             const marks = checkArray(row);
             
-            for (let colIndex = 0; colIndex < marks.length; colIndex++) {
+            for (let colIndex = 0; colIndex < 9; colIndex++) {
                 if(!marks[colIndex]){
                     this._matrixMarks[rowIndex][colIndex] = false;
                 }                

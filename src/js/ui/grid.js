@@ -64,6 +64,7 @@ class Grid {
         }
 
         const marks = checker.matrixMarks;
+        console.log(marks);
         this._$container.children()
             .each((rowIndex,div)=>{
                 $(div).children().each((colIndex,span)=>{

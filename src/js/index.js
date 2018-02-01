@@ -14,7 +14,6 @@ $("#rebuild").click(e=>{
     grid.rebuild();
 })
 $("#check").click(e=>{
-    console.log("检查了")
     grid.check();
 })
 $("#clear1").click(e=>{

@@ -28,12 +28,24 @@ class PopupNumbers {
 
     popup($cell){
         this._$targetCell = $cell;
+        const width = $cell.width();
+        console.log(width);
+        $("#popupNumbers").find("span").css({
+            "width": width,
+            "height":width,
+            "line-height":`${width}px`
+        });
+
+        const popupWidth = $("#popupNumbers").width();
+        const sreenWidth = $(window).width();
         const {left,top} = $cell.position();
-        console.log($cell);
         this._$panel.css({
             left:`${left}px`,
             top:`${top}px`
         }).show();
+        if (left + popupWidth > sreenWidth) {
+            this._$panel.css("left",sreenWidth - popupWidth)
+        }
     }
 
     hide(){
