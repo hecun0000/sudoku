@@ -155,9 +155,7 @@ header h1 {
   border-bottom: 2px solid #b2bec3;
 }
 .popup-num .row span {
-  width: 40px;
-  height: 1.5rem;
-  line-height: 1.5rem;
+  font-size: .8rem;
   box-sizing: border-box;
 }
 .hidden {
